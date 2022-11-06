@@ -6,11 +6,11 @@ The goal is to pass all the 14 levels:
 | Level | Exploit\Technique\Breach |
 | ----- | ------- |
 | [level0](/level0/README.md) | Passing exact parameter |
-| [level1](/level1/README.md) | Overwriting return address with addr of `run` |
-| [level2](/level2/README.md) | |
-| [level3](/level3/README.md) | |
-| [level4](/level4/README.md) | |
-| [level5](/level5/README.md) | |
+| [level1](/level1/README.md) | Overwriting return address |
+| [level2](/level2/README.md) | Ret2Shellcode (on the heap) |
+| [level3](/level3/README.md) | Format string attack |
+| [level4](/level4/README.md) | Format string attack |
+| [level5](/level5/README.md) | Format string attack, GOT rewriting |
 | [level6](/level6/README.md) | |
 | [level7](/level7/README.md) | |
 | [level8](/level8/README.md) | |

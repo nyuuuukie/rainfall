@@ -5,7 +5,6 @@ void o() {
     exit(1);
 }
 
-
 void n(void) {
     char buf[520];
     fgets(buf, 512, stdin);

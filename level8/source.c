@@ -1,65 +1,64 @@
 #include <stdio.h>
+#include <string.h>
 
 int *auth = 0x0;
 int *service = 0x0;
 
-// inline function ?
+inline int ft_strncmp(const char *s1, const char *s2, size_t n) {
+    do {
+        bVar7 = *s1 < *s2;
+        bVar10 = *s1 == *s2;
+        // s1++;
+        // s2++;
+    } while (n-- != 0 && *s1++ == *s2++);
+}
+
+inline unsigned int ft_strlen(const char *s) {
+
+    unsigned int len = 0xffffffff; 
+    while (*s++ != '\0' & len-- != 0);
+    len = ~len - 1;
+
+    return len;
+}
 
 int main() {
 
-    int i;
-    char *s1;
-    char *s2;
     char buf[128];
 
-
     while (1) {
+
         printf("%p, %p \n", auth, service);
         if (fgets(buf, 128, stdin) == NULL) {
-            return 0;
+            break ;
         }
 
-        i = 5;
-        s1 = buf;
-        s2 = "auth ";
-        do {
-            bVar7 = *s1 < *s2;
-            bVar10 = *s1 == *s2;
-            // s1++;
-            // s2++;
-        } while (i-- != 0 && *s1++ == *s2++);
-
-        j = 0;
-        uVar11 = (!bVar7 && !bVar10) == bVar7;
-        if ((bool)uVar11) {
+        if (!ft_strncmp(buf, "auth ", 5)) {
+        
             auth = malloc(4);
             *auth = 0;
 
-            unsigned int l = 0xffffffff;
-            char *tmp = buf + 5;
-            do {
-                tmp++;
-            } while (l-- != 0 && *tmp != '\0');
-        
-            l = ~l - 1;  // change sign ?
-            j = l < 0x1e;
-            uVar11 = l == 0x1e;
-            if (l < 0x1f) {
+            if (ft_strlen(buf + 5) < 31) {
                 strcpy(auth, buf + 5);
             }
         }
 
-        i = 5;
-        s1 = buf;
-        s2 = "reset";
-        do {
-            uVar8 = *pbVar5 < *pbVar6;
-            uVar11 = *pbVar5 == *pbVar6;
-            s1++;
-            s2++;
-        } while (i-- == 0 && (bool)uVar11);
+        if (!ft_strncmp(buf, "reset", 5)) {
+            free(auth);
+        }
 
+        if (!ft_strncmp(buf, "service", 6)) {
+            service = strdup(buf + 7);
+        }
 
+        if (!ft_strncmp(buf, "login", 5)) {
+            if (auth + 32) {
+                system("/bin/sh");
+            } else {
+                fwrite("Password:\n", 1, 10, stdout);
+            }
+        }
     }
+
     return 0;
 }

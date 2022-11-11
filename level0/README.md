@@ -19,28 +19,11 @@ No RELRO        No canary found   NX enabled    No PIE          No RPATH   No RU
 
 ## Solution
 
-Decompile `level0` with [ghidra](https://github.com/NationalSecurityAgency/ghidra) gives the following source code:
-
-```c
-int main(int ac, char **av) {
-
-    int num = atoi(av[1]);
-    if (num == 423) {
-         char *s = strdup("/bin/sh");
-        __gid_t gid = getegid();
-        __uid_t uid = geteuid();
-        setresgid(gid, gid, gid);
-        setresuid(uid, uid, uid);
-        execv("/bin/sh", &s);
-    }
-    else {
-        fwrite("No !\n", 1, 5, (FILE *)stderr);
-    }
-    return 0;
-}
+```bash
+gdb -batch -ex 'disas main' level0
 ```
 
-As we see, a `/bin/sh` will be created with escalated privileges if we pass `423` as the first arg.
+As we see, a `/bin/sh` will be executed with escalated privileges if we pass `423` as the first arg.
 
 ```bash
 ./level0 423
@@ -67,6 +50,4 @@ $ cat .pass
 1fe8a524fa4bec01ca4ea2a869af2a02260d4a7d5fe7e7c24d8617e6dca12d3a
 ```
 
-`level1:1fe8a524fa4bec01ca4ea2a869af2a02260d4a7d5fe7e7c24d8617e6dca12d3a`
-
-Fun fact: I have found the source code of this binary when I was looking for some files in the `darkly` system.
+Fun fact: I have found the source code of this binary when I was serfing through `darkly` system.

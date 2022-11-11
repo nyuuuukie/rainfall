@@ -35,8 +35,8 @@ To do that, let's pay attention to 2 facts:
 1st and 3rd `malloc` calls are just arrays of two integers, `arr1` and `arr2`.
 The result of 2nd and 4th calls are stored in `arr1[1]` and `arr2[1]`, respectively.
 
-This scheme represents the memory after all `malloc` being called. <br>
-<img src="./Resources/scheme07.png" width=400/>
+This scheme represents the memory after `malloc` called. <br>
+<img src="./Resources/scheme07.png" width=600/>
 
 `strcpy` will copy from the address stored in arr[1] (first red block on the scheme)
 

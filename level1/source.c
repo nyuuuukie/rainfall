@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void run() {
+void run(void) {
     fwrite("Good... Wait what?\n", 13, 1, stdout);
     system("/bin/sh");
 }

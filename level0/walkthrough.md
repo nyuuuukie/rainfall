@@ -19,8 +19,15 @@ No RELRO        No canary found   NX enabled    No PIE          No RPATH   No RU
 
 ## Solution
 
+Let's use `gdb` to disassemble level0:
 ```bash
 gdb -batch -ex 'disas main' level0
+
+# or
+
+gdb level0
+...
+(gdb) disas main
 ```
 
 As we see, a `/bin/sh` will be executed with escalated privileges if we pass `423` as the first arg.

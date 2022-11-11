@@ -5,20 +5,20 @@ The goal is to pass all the 14 levels:
 
 | Level | Exploit\Technique\Breach |
 | ----- | ------- |
-| [level0](/level0/README.md) | Passing exact parameter |
-| [level1](/level1/README.md) | Overwriting return address |
-| [level2](/level2/README.md) | Ret2Shellcode (on the heap) |
-| [level3](/level3/README.md) | Format string attack |
-| [level4](/level4/README.md) | Format string attack |
-| [level5](/level5/README.md) | Format string attack, GOT rewriting |
-| [level6](/level6/README.md) | |
-| [level7](/level7/README.md) | |
-| [level8](/level8/README.md) | |
-| [level9](/level9/README.md) | |
-| [bonus0](/level10/README.md) | |
-| [bonus1](/level11/README.md) | |
-| [bonus2](/level12/README.md) | |
-| [bonus3](/level13/README.md) | |
+| [level0](/level0/walkthrough.md) | Passing right parameter |
+| [level1](/level1/walkthrough.md) | Overwriting return address (to function) |
+| [level2](/level2/walkthrough.md) | Overwriting return address (to shellcode) |
+| [level3](/level3/walkthrough.md) | Format string attack |
+| [level4](/level4/walkthrough.md) | Format string attack |
+| [level5](/level5/walkthrough.md) | Format string attack, GOT rewriting |
+| [level6](/level6/walkthrough.md) | |
+| [level7](/level7/walkthrough.md) | |
+| [level8](/level8/walkthrough.md) | |
+| [level9](/level9/walkthrough.md) | |
+| [bonus0](/bonus0/walkthrough.md) | |
+| [bonus1](/bonus1/walkthrough.md) | |
+| [bonus2](/bonus2/walkthrough.md) | |
+| [bonus3](/bonus3/walkthrough.md) | |
 
 In all scripts, I used ip address that is set into $IP env variable:  
 ```

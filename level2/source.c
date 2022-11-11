@@ -6,8 +6,9 @@ void p() {
     fflush(stdout);
     gets(buf);
 
-    if (((unsigned int)(buf + 80) & 0xb0000000) == 0xb0000000) {
-        printf("(%p)\n", buf + 80);
+    unsigned int ret = buf + 80;
+    if (ret & 0xb0000000 == 0xb0000000) {
+        printf("(%p)\n", ret);
         exit(1);
     }
     puts(buf);

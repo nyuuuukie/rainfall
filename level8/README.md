@@ -54,6 +54,5 @@ c542e581c5ba5162a85f767996e3247ed619ef6c6f7b76a59435545dc6259f8a
 ```
 
 ## References
-
-https://stackoverflow.com/questions/44630262/what-do-the-assembly-instructions-seta-and-setb-do-after-repz-cmpsb
-https://faydoc.tripod.com/cpu/cmps.htm
+- [seta and setb](https://stackoverflow.com/questions/44630262/what-do-the-assembly-instructions-seta-and-setb-do-after-repz-cmpsb)
+- [asm instructions](https://faydoc.tripod.com/cpu/cmps.htm)

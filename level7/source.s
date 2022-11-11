@@ -5,7 +5,7 @@ m:
    sub    $0x18,%esp
 
    movl   $0x0,(%esp)
-   call   0x80483d0 <time@plt>   ; time(0)
+   call   0x80483d0 <time@plt>     ; time(0)
    mov    $0x80486e0,%edx        
    mov    %eax,0x8(%esp)           ; seconds
    movl   $0x8049960,0x4(%esp)     ; c global var

@@ -5,12 +5,8 @@ int *auth = 0x0;
 int *service = 0x0;
 
 inline int ft_strncmp(const char *s1, const char *s2, size_t n) {
-    do {
-        bVar7 = *s1 < *s2;
-        bVar10 = *s1 == *s2;
-        // s1++;
-        // s2++;
-    } while (n-- != 0 && *s1++ == *s2++);
+    while (n-- != 0 && *s1++ == *s2++);
+    return *s1 - *s2;
 }
 
 inline unsigned int ft_strlen(const char *s) {

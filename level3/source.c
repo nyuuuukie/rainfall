@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// maybe in another file;
 int m;
 
 void v(void) {

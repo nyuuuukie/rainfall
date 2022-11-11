@@ -20,7 +20,7 @@ No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RU
 
 ## Solution
 
-From the inspecting disassembled code, we can understand that we can use vulnerable `gets` to overwrite return address.
+From the inspecting [disassembled code](./source.s), we can understand that we can use vulnerable `gets` to overwrite return address.
 
 What we'll do is place some shellcode into our buffer and overwrite `p`'s return address to jmp right to the shellcode.
 

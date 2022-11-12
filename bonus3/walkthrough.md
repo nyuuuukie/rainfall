@@ -29,18 +29,19 @@ Look at these lines:
 ```
 
 Here, we understand that `/bin/sh` will be executed only if `buf` will be equal to `av[1]`.
-As for `buf`, it is filled with token of `end` user.
+As for `buf`, it is filled with the token of `end` user.
 ```c
     file = fopen("/home/user/end/.pass", "r");
+    ...
     fread(buf, 1, 66, file);
     buf[65] = '\0';
+
     *(buf + atoi(av[1])) = '\0';
+    
     fread(&buf[66], 1, 65, file);
 ```
 
-So, here is two options:
-1. Guess the token and pass as `av[1]`...
-2. Pass empty string as a parameter, that will be parsed by `atoi` as 0 and terminated null will be placed at the beginning of the `buf` that made `buf` equal to empty string.
+To solve this puzzle, we need to pass empty string as a parameter, that will be parsed by `atoi` as 0 and terminated null will be placed at the beginning of the `buf` that made `buf` equal to empty string.
 
 ```bash
 ./bonus3 ""

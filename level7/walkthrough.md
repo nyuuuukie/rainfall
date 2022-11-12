@@ -21,7 +21,7 @@ No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RU
 ## Solution
 
 From the inspecting [disassembled code](./source.s), we can understand that the program opens 
-`/home/user/level8/.pass` and reads it to the global buffer `c` of size 80.
+`/home/user/level8/.pass` and reads it to the global buffer `c` of size 80. <br>
 The main problem is `puts` call doesn't print buffer `c`, but `~~` string literal instead.
 
 Our savior is `m` function that calls `printf` that prints time and `c` buffer.

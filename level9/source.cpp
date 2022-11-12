@@ -36,7 +36,7 @@ int main(int ac, char **av) {
 
     n1->setAnnotation(av[1]);
 
-    ((*n2).*((*n2).ptr))(*n1);
+    (n2->*(n2->ptr))(*n1);
 
     return 0;
 }

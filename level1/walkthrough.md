@@ -20,7 +20,7 @@ No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RU
 
 ## Solution
 
-[Disassembling](./source.s) gives us important information:
+[Disassembling](./source.s) gives us important information: <br>
 There is a function called `run` that contains `system("/bin/sh")` call. <br>
 To use the exploit, we need to overload the buffer in the `main` function and overwrite return address. <br>
 

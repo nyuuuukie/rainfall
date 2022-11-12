@@ -20,7 +20,8 @@ No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RU
 
 ## Solution
 
-This level uses format string attack again, but there is no `m` variable to overwrite, so we'll overwrite `exit` address in the `GOT` table. See [disassembled code](./source.s) and [source](./source.c) file to understand more.
+This level uses format string attack again, but there is no `m` variable to overwrite, so we'll overwrite `exit` address in the `GOT` table. <br>
+See [disassembled code](./source.s) and [source](./source.c) file to understand more.
 
 
 ```bash

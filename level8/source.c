@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-int *auth = 0x0;
-int *service = 0x0;
+char *auth = NULL;
+char *service = NULL;
 
 inline int ft_strncmp(const char *s1, const char *s2, size_t n) {
     while (n-- != 0 && *s1++ == *s2++);

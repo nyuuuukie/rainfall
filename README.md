@@ -5,7 +5,7 @@ The goal is to pass all the 14 levels:
 
 | Level | Exploit\Technique\Breach |
 | ----- | ------- |
-| [level0](/level0/walkthrough.md) | Passing right parameter |
+| [level0](/level0/walkthrough.md) | Passing suitable parameter |
 | [level1](/level1/walkthrough.md) | Overwriting return address (to function) |
 | [level2](/level2/walkthrough.md) | Overwriting return address (to shellcode) |
 | [level3](/level3/walkthrough.md) | Format string attack |
@@ -14,11 +14,11 @@ The goal is to pass all the 14 levels:
 | [level6](/level6/walkthrough.md) | Buffer overflow |
 | [level7](/level7/walkthrough.md) | Buffer overflow, GOT rewriting |
 | [level8](/level8/walkthrough.md) | Buffer overflow (almost) |
-| [level9](/level9/walkthrough.md) | |
-| [bonus0](/bonus0/walkthrough.md) | |
-| [bonus1](/bonus1/walkthrough.md) | |
+| [level9](/level9/walkthrough.md) | Buffer overflow, ret2shellcode |
+| [bonus0](/bonus0/walkthrough.md) | Buffer overflow |
+| [bonus1](/bonus1/walkthrough.md) | Buffer overflow, local var overwriting |
 | [bonus2](/bonus2/walkthrough.md) | Buffer overflow, ret2libc |
-| [bonus3](/bonus3/walkthrough.md) | |
+| [bonus3](/bonus3/walkthrough.md) | Passing suitable parameter |
 
 In all scripts, I used ip address that is set into $IP env variable:  
 ```

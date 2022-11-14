@@ -77,7 +77,7 @@ pp:
     mov    %dx,(%eax)               ; transferring 2 bytes (word) into str
 
     lea    -0x1c(%ebp),%eax
-    mov    %eax,0x4(%esp)           ; buf[28]
+    mov    %eax,0x4(%esp)           ; buf[20]
     mov    0x8(%ebp),%eax
     mov    %eax,(%esp)              ; str
     call   0x8048390 <strcat@plt>

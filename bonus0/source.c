@@ -18,14 +18,14 @@ void p(char *s1, char *s2) {
     puts(s2);
     read(0, buf, 4096);
     match = strchr(buf, '\n');
-    * match = '\0';
+    *match = '\0';
     strncpy(s1, buf, 20);
 }
 
 void pp(char *str) {
 
     char buf1[20];
-    char buf2[28];
+    char buf2[20];
 
     p(buf1, " - ");
     p(buf2, " - ");

@@ -49,7 +49,7 @@ pp:
 
     movl   $0x80486a0,0x4(%esp)     ; " - "
     lea    -0x1c(%ebp),%eax
-    mov    %eax,(%esp)              ; buf[28]
+    mov    %eax,(%esp)              ; buf[20]
     call   0x80484b4 <p>
 
     lea    -0x30(%ebp),%eax

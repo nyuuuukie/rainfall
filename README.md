@@ -17,7 +17,7 @@ The goal is to pass all the 14 levels:
 | [level9](/level9/walkthrough.md) | |
 | [bonus0](/bonus0/walkthrough.md) | |
 | [bonus1](/bonus1/walkthrough.md) | |
-| [bonus2](/bonus2/walkthrough.md) | |
+| [bonus2](/bonus2/walkthrough.md) | Buffer overflow, ret2libc |
 | [bonus3](/bonus3/walkthrough.md) | |
 
 In all scripts, I used ip address that is set into $IP env variable:  

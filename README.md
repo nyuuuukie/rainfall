@@ -20,10 +20,6 @@ The goal is to pass all the 14 levels:
 | [bonus2](/bonus2/walkthrough.md) | Buffer overflow, ret2libc |
 | [bonus3](/bonus3/walkthrough.md) | Passing suitable parameter |
 
-In all scripts, I used ip address that is set into $IP env variable:  
-```
-export IP=192.168.64.9
-```
 
 ## References
 - [stack protection](https://developers.redhat.com/articles/2022/06/02/use-compiler-flags-stack-protection-gcc-and-clang#control_flow_integrity)

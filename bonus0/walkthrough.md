@@ -41,6 +41,7 @@ void pp(char *buffer0) {
     *(str + 1) = '\0';
 
     strcat(str, buf1);
+}
 ```
 
 From this line in the [source.s](./source.s) we can understand that the stack was aligned to 16 bytes.

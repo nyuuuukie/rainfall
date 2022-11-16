@@ -37,8 +37,8 @@ p:
 pp:
     push   %ebp
     mov    %esp, %ebp
-    push   %edi
-    push   %ebx
+    push   %edi                     ; 4 bytes
+    push   %ebx                     ; another 4 bytes
 
     sub    $0x50, %esp              ; 80 bytes allocated on stack
 
@@ -91,12 +91,13 @@ pp:
 main:
     push   %ebp
     mov    %esp,%ebp
-    and    $0xfffffff0,%esp
+    and    $0xfffffff0,%esp      ; esp -= 8 bytes
+    sub    $0x40,%esp            ; 64 bytes allocated on stack
 
-    sub    $0x40,%esp            ; 64 bytes allocated on stack 
     lea    0x16(%esp),%eax  
     mov    %eax,(%esp)           ; 42 bytes array
     call   0x804851e <pp>
+
     lea    0x16(%esp),%eax 
     mov    %eax,(%esp)           ; 42 bytes array
     call   0x80483b0 <puts@plt>

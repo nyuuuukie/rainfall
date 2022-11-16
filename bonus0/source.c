@@ -27,16 +27,16 @@ void pp(char *str) {
     char buf1[20];
     char buf2[20];
 
-    p(buf1, " - ");
     p(buf2, " - ");
+    p(buf1, " - ");
 
-    strcpy(str, buf1);
+    strcpy(str, buf2);
 
     str += ft_strlen(str);
     *str = ' ';
     *(str + 1) = '\0';
 
-    strcat(str, buf2);
+    strcat(str, buf1);
 }
 
 

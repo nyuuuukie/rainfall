@@ -8,7 +8,7 @@ void run(void) {
 int main() {
     // There's alignment of 8 bytes as well, made by 'and' instruction.
     // 64 bytes of array + 8 bytes alignment + 4 bytes saved EBP + 4 bytes EIP
-    char buf[80];
-    gets(&buf[16]);
+    char buf[64];
+    gets(buf);
     return 0;
 }
